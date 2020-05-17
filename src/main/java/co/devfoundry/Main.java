@@ -1,5 +1,6 @@
 package co.devfoundry;
 
+import co.devfoundry.chess.*;
 import co.devfoundry.flyweight.Destroyer;
 import co.devfoundry.flyweight.Rifleman;
 import co.devfoundry.flyweight.TeslaTank;
@@ -9,16 +10,17 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
-
-        List<Object> activeUnits = new ArrayList<>();
-
-        for(int i = 0;i<1000000;i++) {
-            activeUnits.add(new TeslaTank(0,0));
-            activeUnits.add(new Rifleman(0,0));
-            activeUnits.add(new Destroyer(0, 0));
+        public static void main(String[] args) {
+            ChessPiece blackPawn = new BlackPiece("Czarny Pionek");
+            ChessPiece whitePawn = new WhitePiece("Biały Pionek");
+            ChessPiece blackQueen = new BlackQueen("Czarna Królowa");
+            ChessPiece whiteQueen = new WhiteQueen("Biala Królowa");
+            //exactly same color object is used
+            System.out.println(blackPawn.getColor()==blackQueen.getColor());
+            System.out.println(whitePawn.getColor()==whiteQueen.getColor());
         }
 
-    }
+
+
 
 }
